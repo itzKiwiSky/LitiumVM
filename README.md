@@ -31,3 +31,4 @@ This engine use some third party libraries, here the creditation for they amazin
 > ### [HUMP - vrld](https://github.com/vrld/hump)
 > ### [Json.lua - rxi](https://github.com/rxi/json.lua)
 > ### [Penlight lib - lunarmodules](https://github.com/lunarmodules/Penlight)
+> ### [Chrono - a327ex](https://github.com/a327ex/chrono/blob/master/Timer.lua)
