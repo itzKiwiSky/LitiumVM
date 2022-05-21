@@ -7,7 +7,6 @@
     litgraphics         =       require 'API/sprite/litgraphics'
     litsound            =       require 'API/sound/litsound'
     litgame             =       require 'API/game/litgame'
-    litdata             =       require 'API/data/litdata'
 
     initLogoTimer = 0
 
@@ -18,7 +17,7 @@
 end
 
 function love.draw()
-    lunagraphics.clearScreen()
+    litgraphics.clearScreen()
     pcall(imagedata(), render())
 end
 

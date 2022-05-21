@@ -1,8 +1,5 @@
 bootloader = {}
 
--- render core --
-litgraphics = require 'src/api/sprite/litgraphics'
-
 progress = 0
 
 function bootloader.draw()
@@ -10,21 +7,21 @@ function bootloader.draw()
 
     -- logo
     logo = {
-        {1,1,3,3,3,3,1,1},
-        {1,3,3,3,3,2,3,1},
-        {3,3,2,3,3,3,3,3},
-        {3,2,2,2,3,3,3,3},
-        {3,3,2,3,3,3,3,3},
-        {3,3,3,3,3,2,3,3},
-        {1,3,3,3,2,2,3,1},
-        {1,1,3,3,3,3,1,1}
+        {1,1,4,4,4,4,1,1},
+        {1,4,4,4,4,4,4,1},
+        {4,4,3,4,4,4,4,4},
+        {4,3,3,3,4,4,4,4},
+        {4,4,3,3,4,4,4,4},
+        {4,4,4,4,4,3,4,4},
+        {1,4,4,4,3,3,4,1},
+        {1,1,4,4,4,4,1,1}
     }
 
     litgraphics.clearScreen()
     litgraphics.newSprite(logo, 16, 580, 170, 2)
-    litgraphics.newSprite(loadingIcon[frame])
+    --litgraphics.newSprite(loadingIcon[frame])
     litgraphics.newText("Loading components", 320, 490, 6, 1)
-    litgraphics.rect(0, 708, progress, 8, 3, "fill")
+    litgraphics.rect(0, 708, progress, 12, 4, "fill")
 end
 
 function bootloader.update()
@@ -33,6 +30,11 @@ function bootloader.update()
     
     math.randomseed(os.clock())
     progress = progress + math.random(1, 15)
+
+    if progress > 1400 then
+        litgraphics.clearScreen()
+        statemngr.changeState("lunamenu")
+    end
 end
 
 return bootloader

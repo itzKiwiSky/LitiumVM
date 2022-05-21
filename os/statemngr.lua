@@ -1,10 +1,10 @@
 state = {}
 
-bootloader = require 'os/bootloader'
-warning = require 'os/warning'
-lunamenu = require 'os/lunamenu'
+bootloader = require 'os.bootloader'
+warning = require 'os.warning'
+lunamenu = require 'os.lunamenu'
 
-statename = nil
+statename = "bootloader"
 
 
 
@@ -24,7 +24,7 @@ function state.stateDraw()
     end
 end
 
-function state.stateUpdate()
+function state.stateUpdate(dt)
     if statename == "bootloader" then
         bootloader.update()
     end
@@ -32,7 +32,7 @@ function state.stateUpdate()
         warning.update()
     end
     if statename == "lunamenu" then
-        lunamenu.update()
+        lunamenu.update(dt)
     end
 end
 

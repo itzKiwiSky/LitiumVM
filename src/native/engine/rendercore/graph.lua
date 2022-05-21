@@ -76,6 +76,7 @@ end
 
 function rendercore.rect(x, y, w, h, colorid, fillType)
     RectColor = {
+        {0,0,0,0},
         {0,0,0},        -- 1
         {0.5,0.5,0.5},
         {1,1,1},
