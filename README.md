@@ -1,6 +1,6 @@
-# LunarisVM-love
+# LitiumVM
 
-> Codename : lunaris, mini os made with love2D
+> Codename : lunaris, mini os and game engine made with love2D
 
 # About Project
 
