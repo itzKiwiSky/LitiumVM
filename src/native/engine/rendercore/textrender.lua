@@ -13,7 +13,7 @@ function text.drawStr(Textstr, x, y, FontSize, txtColor, bgColorId)
 
     letters = "abcdefghijklmnopqrstuvwxyz0123456789 !%*(),.:;"
 
-    letterSize = font.FontSpacing
+    letterSize = font.FontLetterSize
 
     textX = x
     textY = y
@@ -56,6 +56,7 @@ function drawCall(spriteData, pixelSize, Xpos, Ypos, TextColorID, BackgroundColo
     }
     
     colorsText = {
+        {0,0,0},
         {0.5,0.5,0.5},
         {1,1,1},
         {1,0,0},

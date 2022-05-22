@@ -12,6 +12,12 @@ function state.changeState(string)
     statename = string
 end
 
+function state.load()
+    if statename == "lunamenu" then
+        lunamenu.load()
+    end
+end
+
 function state.stateDraw()
     if statename == "bootloader" then
         bootloader.draw()
@@ -26,13 +32,19 @@ end
 
 function state.stateUpdate(dt)
     if statename == "bootloader" then
-        bootloader.update()
+        bootloader.update(dt)
     end
     if statename == "warning" then
-        warning.update()
+        warning.update(dt)
     end
     if statename == "lunamenu" then
         lunamenu.update(dt)
+    end
+end
+
+function state.keydown(k)
+    if statename == "lunamenu" then
+        lunamenu.keydown(k)
     end
 end
 

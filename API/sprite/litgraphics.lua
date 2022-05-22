@@ -19,8 +19,8 @@ end
 --- @param textPosX | X position to create sprite
 --- @param textPosY | Y Position to create sprite
 --- @param FontSize | Set the font size
---- @param ColoriD | Set font color
---- @param wireframebool | boolean to show wireframe (Debug)
+--- @param textColor | Set font color
+--- @param bgColor | set font background colors
 function litgraphics.newText(textStr, textPosX, textPosY, fontSize, textColor, bgcolor)
     textrender.drawStr(textStr, textPosX, textPosY, fontSize, textColor, bgcolor)
 end

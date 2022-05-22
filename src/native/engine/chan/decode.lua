@@ -15,6 +15,12 @@ function chan_decode.decode(filepath, chunkName)
 		end
 	end
 end
+
+function chan_decode.append(filepath, chunkName, value)
+	file = io.open(filepath .. ".chan", "a")
+	file:write(chunkName .. "::" .. "value")
+	file:close()
+end
 	
 
 return chan_decode

@@ -3,11 +3,16 @@ function start()
     litsound        =       require 'API/sound/litsound'
     litinput        =       require 'API/input/litinput'
     litgame         =       require 'API/game/litgame'
+    litsystem       =       require 'API/system/litsystem'
+    Timer           =       require 'src/thirdparty/timer'
     bootloader      =       require 'os/bootloader'
     debugstate      =       require 'os/debugstate'
     lunamenu        =       require 'os/lunamenu'
     statemngr       =       require 'os/statemngr'
-    statemngr.changeState("bootloader")
+
+    statemngr.changeState("lunamenu")
+    statemngr.load()
+    litsystem.setName("teste")
 end
 
 function render()
@@ -20,7 +25,7 @@ end
 
 
 function keydown(k)
-    
+    statemngr.keydown(k)
 end
 
 function keyup(k)
