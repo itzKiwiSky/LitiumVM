@@ -1,16 +1,21 @@
 function start()
+    --==[: API Stuff :]==--
     litgraphics     =       require 'API/sprite/litgraphics'
     litsound        =       require 'API/sound/litsound'
     litinput        =       require 'API/input/litinput'
     litgame         =       require 'API/game/litgame'
     litsystem       =       require 'API/system/litsystem'
+    ------------------------------------------------------
+    --==[: States and other stuff :]==--
     Timer           =       require 'src/thirdparty/timer'
     bootloader      =       require 'os/bootloader'
-    debugstate      =       require 'os/debugstate'
+    shutdownstate   =       require 'os/shutdownstate'
     lunamenu        =       require 'os/lunamenu'
     statemngr       =       require 'os/statemngr'
+    settings        =       require 'os/settingsState'
+    ------------------------------------------------------
 
-    statemngr.changeState("lunamenu")
+    statemngr.changeState("bootloader")
     statemngr.load()
     litsystem.setName("teste")
 end

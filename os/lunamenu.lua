@@ -2,38 +2,26 @@ lunamenu = {}
 
 -----------------------------------
 lunalogo = {
-    {15,15,4,4,4,4,15,15},
-    {15,4,4,4,4,3,4,15},
+    {21,21,4,4,4,4,21,21},
+    {21,4,4,4,4,3,4,21},
     {4,4,3,4,4,4,4,4},
     {4,3,3,3,4,4,4,4},
     {4,4,3,4,4,4,4,4},
     {4,4,4,4,4,3,4,4},
-    {15,4,4,4,3,3,4,15},
-    {15,15,4,4,4,4,15,15}
-}
-
-cursor = {
-    {4,4,1,1,4,4},
-    {4,1,1,1,1,4},
-    {1,1,1,1,1,1},
-    {1,1,1,1,1,1},
-    {4,1,1,1,1,4},
-    {4,4,1,1,4,4}
+    {21,4,4,4,3,3,4,21},
+    {21,21,4,4,4,4,21,21}
 }
 
 -----------------------------------
 
 selection = 1
 
-function lunamenu.load()
-    
-end
-
 function lunamenu.draw()
     litgraphics.rect(0, 0, 1280, 720, 15, "fill")
     litgraphics.rect(0, 0, 1280, 64, 21, "fill")
     litgraphics.rect(0, 0, 1280, 16, 9, "fill")
-    litgraphics.newSprite(lunalogo, 4, 16, 12)
+    litgraphics.newSprite(lunalogo, 4, 16, 16)
+    litgraphics.newText("LunaMenu", 1040, 16, 4, 3, 1)
 
     -- cursor system --
     if selection == 1 then
@@ -68,6 +56,19 @@ function lunamenu.keydown(k)
     end
     if k == "down" then
         selection = selection + 1
+    end
+    if k == "return" then
+        if selection == 1 then
+            
+        end
+        if selection == 2 then
+            litgraphics.clearScreen()
+            statemngr.changeState("settings")   
+        end
+        if selection == 3 then
+            litgraphics.clearScreen()
+            statemngr.changeState("shutdown")
+        end
     end
 end
 

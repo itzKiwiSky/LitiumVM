@@ -2,13 +2,17 @@ bootloader = {}
 
 progress = 0
 
+function bootloader.load()
+    chan.append("test", "test", "3")
+end
+
 function bootloader.draw()
     --[[ initialize all objects to screen ]]--
 
     -- logo
     logo = {
         {1,1,4,4,4,4,1,1},
-        {1,4,4,4,4,4,4,1},
+        {1,4,4,4,4,3,4,1},
         {4,4,3,4,4,4,4,4},
         {4,3,3,3,4,4,4,4},
         {4,4,3,3,4,4,4,4},
@@ -20,7 +24,7 @@ function bootloader.draw()
     litgraphics.clearScreen()
     litgraphics.newSprite(logo, 16, 580, 170, 2)
     --litgraphics.newSprite(loadingIcon[frame])
-    litgraphics.newText("Loading components", 320, 490, 6, 1)
+    litgraphics.newText("Loading components", 320, 490, 6, 3, 1)
     litgraphics.rect(0, 708, progress, 12, 4, "fill")
 end
 

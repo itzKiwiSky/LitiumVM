@@ -13,8 +13,14 @@ function state.changeState(string)
 end
 
 function state.load()
-    if statename == "lunamenu" then
-        lunamenu.load()
+    if statename == "shutdown" then
+        shutdownstate.load()
+    end
+    if statename == "settings" then
+        settings.load()
+    end
+    if statename == "bootloader" then
+        bootloader.load()
     end
 end
 
@@ -28,6 +34,12 @@ function state.stateDraw()
     if statename == "lunamenu" then
         lunamenu.draw()
     end
+    if statename == "shutdown" then
+        shutdownstate.draw()
+    end
+    if statename == "settings" then
+        settings.draw()
+    end
 end
 
 function state.stateUpdate(dt)
@@ -39,6 +51,12 @@ function state.stateUpdate(dt)
     end
     if statename == "lunamenu" then
         lunamenu.update(dt)
+    end
+    if statename == "shutdown" then
+        shutdownstate.update(dt)
+    end
+    if statename == "settings" then
+        settings.draw()
     end
 end
 
