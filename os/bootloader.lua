@@ -13,8 +13,6 @@ function bootloader.load()
         {1,4,4,4,3,3,4,1},
         {1,1,4,4,4,4,1,1}
     }
-
-    chan.append("test", "test", "string 4")
 end
 
 function bootloader.draw()
