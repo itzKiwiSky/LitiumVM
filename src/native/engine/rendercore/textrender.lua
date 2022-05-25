@@ -11,7 +11,7 @@ function text.drawStr(Textstr, x, y, FontSize, txtColor, bgColorId)
 
     textOutput = string.lower(Textstr)
 
-    letters = "abcdefghijklmnopqrstuvwxyz0123456789 !%*(),.:;"
+    letters = "abcdefghijklmnopqrstuvwxyz0123456789 "
 
     letterSize = font.FontLetterSize
 

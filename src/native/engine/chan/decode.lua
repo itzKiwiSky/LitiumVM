@@ -1,4 +1,4 @@
-chan_decode = {VERSION = "1.0.0"}
+chan_decode = {VERSION = "0.0.1"}
 
 stringx = require 'pl/stringx'
 
@@ -16,10 +16,29 @@ function chan_decode.decode(filepath, chunkName)
 	end
 end
 
+function valueExist(filepath, chunkName)
+	j = 0
+	file = io.open(filepath .. ".chan", "r")
+	lines = file:lines()
+	for line in lines do
+		j = j + 1
+		stringContent = string.find(line, chunkName)
+		if stringContent  then	--chekc if not null <3
+			return true
+		else
+			return false
+		end
+	end
+end
+
 function chan_decode.append(filepath, chunkName, value)
 	file = io.open(filepath .. ".chan", "a")
-	file:write(chunkName .. "::" .. "value")
-	file:close()
+	boolValueExist = valueExist(filepath, chunkName)
+	print(boolValueExist)
+	if not boolValueExist or boolValueExist == nil then
+		file:write(chunkName .. "::" .. value .. "\n")
+		file:close()
+	end
 end
 	
 
