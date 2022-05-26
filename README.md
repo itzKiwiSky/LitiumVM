@@ -22,8 +22,6 @@ You can contribute with the development of engine by clonning this repository wi
 
 Everyone who helps will be credited here (social media or Github page)
 
-also I do a simple todo list, here link : https://trello.com/b/uuZdIhO0/codename-lunaris
-
 # Library credits
 
 This engine use some third party libraries, here the creditation for they amazing work :D
