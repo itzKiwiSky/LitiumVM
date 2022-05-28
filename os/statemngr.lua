@@ -3,10 +3,9 @@ state = {}
 bootloader = require 'os.bootloader'
 warning = require 'os.warning'
 lunamenu = require 'os.lunamenu'
+settings = require 'os.settingsState'
 
 statename = "bootloader"
-
-
 
 function state.changeState(string)
     statename = string
@@ -15,9 +14,6 @@ end
 function state.load()
     if statename == "shutdown" then
         shutdownstate.load()
-    end
-    if statename == "settings" then
-        settings.load()
     end
     if statename == "bootloader" then
         bootloader.load()
@@ -56,13 +52,19 @@ function state.stateUpdate(dt)
         shutdownstate.update(dt)
     end
     if statename == "settings" then
-        settings.draw()
+        settings.update()
     end
 end
 
 function state.keydown(k)
     if statename == "lunamenu" then
         lunamenu.keydown(k)
+    end
+    if statename == "settings" then
+        settings.keydown(k)
+    end
+    if statename == "bootloader" then
+        bootloader.keydown(k)
     end
 end
 

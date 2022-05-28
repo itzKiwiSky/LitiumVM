@@ -3,7 +3,8 @@ chan_decode = {VERSION = "0.0.1"}
 stringx = require 'pl/stringx'
 
 function chan_decode.decode(filepath, chunkName)
-	return read(filepath, chunkName)
+	data = read(filepath, chunkName, 2)
+	return data
 end
 
 function read(filepath, chunkName, returnID)
@@ -38,6 +39,12 @@ function chan_decode.append(filepath, chunkName, value)
 		file:close()
 	end
 end
+
+function chan_decode.edit(filepath, chunkName, newValue)
+	
+end
+
+
 	
 
 return chan_decode

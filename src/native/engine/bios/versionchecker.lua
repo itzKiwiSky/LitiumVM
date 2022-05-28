@@ -7,7 +7,7 @@ function versionchecker.checkFileVersion()
     bool = checkVersionData()
 
     if bool then
-        error("This image require a version")
+        error("[:ERROR:] | This image is incompatible with the bios version")
     end
 end
 
