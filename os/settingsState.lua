@@ -1,12 +1,15 @@
 settings = {}
 
-insert = table.insert
+switch = require 'src.native.sources.switch'
 
+-- chan bios file values --
 currentOS = chan.decode("bios", "BIOS_DEFAULTIMAGE")
+booloaderLogo = chan.decode("client", "CLIENT_BOOTLOGO")
+waterMark = chan.decode("client", "CLIENT_WATERMARK")
 
 maxY = 80
 cursorY = 80
-selectionPosList = {}
+selectionID = 1
 
 settingsOptions = {
     {
@@ -15,11 +18,11 @@ settingsOptions = {
     },
     {
         optionDesc = "Booloader Logo",
-        value = "true"
+        value = booloaderLogo
     },
     {
         optionDesc = "Luna watermark",
-        value = "false"
+        value = waterMark
     }
 }
 
@@ -42,7 +45,6 @@ function renderOption()
     for i = 1, #settingsOptions do
         litgraphics.newText(settingsOptions[i].optionDesc, 20, y, 3, 3, 1)
         litgraphics.newText(settingsOptions[i].value, 1060, y, 3, 6, 4)
-        insert()
         --litgraphics.rect(0, y + 25, 1280, 3, 4, "fill")
         i = i + 1
         y = y + 30
@@ -57,32 +59,38 @@ function settings.draw()
     litgraphics.newText("Luna settings", 10, 10, 3, 3, 1)
     renderOption()
     --renderLines()
-    litgraphics.newSprite(cursor, 4, -5, cursorY)
+    litgraphics.newSprite(cursor, 4, -7, cursorY)
 end
 
-function settings.update()
+function settings.update(dt)
     if cursorY < 80 then
         cursorY = 80
+        selectionID = 1
     end
     if cursorY > maxY then
         cursorY = maxY
+        selectionID = #settingsOptions
     end
 end
 
 function settings.keydown(k)
     if  k == "up" then
         cursorY = cursorY - 30
-        print(cursorY)
+        selectionID = selectionID - 1
     end
     if  k == "down" then
         cursorY = cursorY + 30
-        print(cursorY)
+        selectionID = selectionID + 1
     end
-end
-
-function renderPage(id)
-    if id == 1 then
-        
+    if k == "return" then
+        switch(selectionID, {
+            [2] = function()
+                print("test1")
+            end,
+            [3] = function()
+                print("test2")
+            end
+        })
     end
 end
 

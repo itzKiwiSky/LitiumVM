@@ -17,7 +17,6 @@ function start()
 
     statemngr.changeState("bootloader")
     statemngr.load()
-    litsystem.setName("teste")
 end
 
 function render()

@@ -14,7 +14,7 @@ function bootloader.load()
         {1,1,4,4,4,4,1,1}
     }
 
-    watermark = chan.decode("bios", "BIOS_BOOTLOGO")
+    watermark = chan.decode("client", "CLIENT_BOOTLOGO")
     --chan.edit("test", "BIOS_WATERMARK", "true")
     print(watermark)
 end
@@ -25,6 +25,7 @@ function bootloader.draw()
         litgraphics.clearScreen()
         litgraphics.newSprite(logo, 16, 580, 170, 2)
         litgraphics.newText("Loading components", 320, 490, 6, 3, 1)
+        litgraphics.newText("press delete to enter in settings", 0, 0, 2, 2, 1)
         litgraphics.rect(0, 708, progress, 12, 4, "fill")
     end
 end
