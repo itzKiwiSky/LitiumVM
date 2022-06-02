@@ -1,30 +1,10 @@
 settings = {}
 
-switch = require 'src.native.sources.switch'
-
--- chan bios file values --
-currentOS = chan.decode("bios", "BIOS_DEFAULTIMAGE")
-booloaderLogo = chan.decode("client", "CLIENT_BOOTLOGO")
-waterMark = chan.decode("client", "CLIENT_WATERMARK")
-
 maxY = 80
 cursorY = 80
 selectionID = 1
 
-settingsOptions = {
-    {
-        optionDesc = "current operating system",
-        value = currentOS
-    },
-    {
-        optionDesc = "Booloader Logo",
-        value = booloaderLogo
-    },
-    {
-        optionDesc = "Luna watermark",
-        value = waterMark
-    }
-}
+settingsOptions = languages[item].settings
 
 cursor = {
     {1,1,4,1,1},
@@ -43,23 +23,25 @@ end
 function renderOption()
     y = 80
     for i = 1, #settingsOptions do
-        litgraphics.newText(settingsOptions[i].optionDesc, 20, y, 3, 3, 1)
-        litgraphics.newText(settingsOptions[i].value, 1060, y, 3, 6, 4)
-        --litgraphics.rect(0, y + 25, 1280, 3, 4, "fill")
+        if settingsOptions[i].value ~= "exit" then
+            litgraphics.newText(settingsOptions[i].optionDesc, 20, y, 3, 3, 1)
+            litgraphics.newText(settingsOptions[i].value, 1060, y, 3, 6, 4)
+        else
+            litgraphics.newText(settingsOptions[i].optionDesc, 20, y, 3, 3, 1)
+        end
+
         i = i + 1
         y = y + 30
     end
     maxY = y - 30
 end
 
-
-
 function settings.draw()
     litgraphics.rect(0, 0, 1280, 720, 7, "fill")
     litgraphics.newText("Luna settings", 10, 10, 3, 3, 1)
     renderOption()
     --renderLines()
-    litgraphics.newSprite(cursor, 4, -7, cursorY)
+    litgraphics.newSprite(cursor, 4, -10, cursorY)
 end
 
 function settings.update(dt)
@@ -89,6 +71,10 @@ function settings.keydown(k)
             end,
             [3] = function()
                 print("test2")
+            end,
+            [4] = function()
+                litgraphics.clearScreen()
+                statemngr.changeState("bootloader") 
             end
         })
     end

@@ -1,10 +1,15 @@
 diskcheck = {}
 
 function diskcheck.init()
-    diskspath = "disk"
+    --diskspath = "disk"
 
-    disks = love.filesystem.getDirectoryItems(diskspath)
-    return disks
+    disks = love.filesystem.getDirectoryItems("disk")
+    
+    if disks == 0 then
+        return false
+    else  
+        return disks
+    end
 end
 
 return diskcheck

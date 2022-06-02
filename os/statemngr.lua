@@ -4,6 +4,7 @@ bootloader = require 'os.bootloader'
 warning = require 'os.warning'
 lunamenu = require 'os.lunamenu'
 settings = require 'os.settingsState'
+rungame = require 'os.rungameState'
 
 statename = "bootloader"
 
@@ -36,6 +37,9 @@ function state.stateDraw()
     if statename == "settings" then
         settings.draw()
     end
+    if statename == "rungame" then
+        rungame.draw()
+    end
 end
 
 function state.stateUpdate(dt)
@@ -52,7 +56,10 @@ function state.stateUpdate(dt)
         shutdownstate.update(dt)
     end
     if statename == "settings" then
-        settings.update()
+        settings.update(dt)
+    end
+    if statename == "rungame" then
+        rungame.update(dt)
     end
 end
 
@@ -65,6 +72,9 @@ function state.keydown(k)
     end
     if statename == "bootloader" then
         bootloader.keydown(k)
+    end
+    if statename == "rungame" then
+        rungame.keydown(k)
     end
 end
 

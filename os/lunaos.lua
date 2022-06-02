@@ -15,8 +15,10 @@ function start()
     settings        =       require 'os/settingsState'
     ------------------------------------------------------
 
-    statemngr.changeState("bootloader")
+    statemngr.changeState("rungame")
     statemngr.load()
+
+
 end
 
 function render()

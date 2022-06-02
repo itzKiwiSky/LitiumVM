@@ -7,6 +7,7 @@
     litgraphics         =       require 'API/sprite/litgraphics'
     litsound            =       require 'API/sound/litsound'
     litgame             =       require 'API/game/litgame'
+    switch              =       require 'src/native/sources/switch'
 
     initLogoTimer = 0
 
