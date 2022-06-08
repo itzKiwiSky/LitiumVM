@@ -1,16 +1,18 @@
-json_file = {}
+chan_decode = {}
 
-json = require 'src/thirdparty/json'
+stringx = require 'pl.stringx'
 
-function json_file.loadfile(path)
-    file = io.open(path, "r")
-    return json.decode(file:read())
+function chan_decode.decode(filepath, chunk)
+    file = io.open(filepath .. ".chan", "r")
+    lines = file:lines()
+	for line in lines do
+		if string.find(line, chunk) then
+			chunkResult = stringx.split(line)
+			return chunkResult[2]
+		end
+	end
+
 end
 
-function json_file.create(filename, contentEncode)
-	jsonOutput = json.encode(contentEncode)
-	io.write(jsonOutput)
-	io.output("export/" .. filename .. ".json")
-end
 
-return json_file
+return chan_decode

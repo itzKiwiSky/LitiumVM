@@ -8,6 +8,8 @@ isPaused = false
 timer = 0
 arraySection = 1
 
+
+
 --- Generate simple tone
 --- @param waveLength | wave holding
 --- @param ToneID |ID of tone
