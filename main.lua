@@ -1,5 +1,4 @@
  function love.load()
-    chan = require 'src/native/engine/chan/decode'
     imageloader = require 'src/native/engine/loader/imageloader'
 
     
@@ -13,23 +12,23 @@
 
 
     --diskcheck.init()
-    imagedata = imageloader.getImage()
-    pcall(imagedata(), start())
+    imageloader.getImage()
+    --pcall(imagedata(), start())
 end
 
 function love.draw()
-    litgraphics.clearScreen()
-    pcall(imagedata(), render())
+    --litgraphics.clearScreen()
+    --pcall(imagedata(), render())
 end
 
 function love.update(dt)
-    pcall(imagedata(), update())
+    --pcall(imagedata(), update())
 end
 
 function love.keypressed(k)
-    pcall(imagedata(), keydown(k))
+    --pcall(imagedata(), keydown(k))
 end
 
 function love.keyrelease(k)
-    pcall(imagedata(), keyup(k))
+    --pcall(imagedata(), keyup(k))
 end

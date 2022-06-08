@@ -1,7 +1,7 @@
-function love.conf(t)
-    t.window.width      =       1280
-    t.window.height     =       720
-    t.window.title      =       "Powered with LitiumEngine"
-    t.console           =       true
-    t.identity          =       "lunavm"
+function love.conf(w)
+    w.window.width      =       1280
+    w.window.height     =       720
+    w.window.title      =       "Powered with LitiumEngine"
+    w.console           =       true
+    w.identity          =       "litium"
 end
