@@ -30,7 +30,8 @@ function rendercore.drawCall(tablespr, pixelSize, Xpos, Ypos)
         {0,0,0.8},
         {0.8,0.8,0},
         {0,0.8,0.8},
-        {0.8,0,0.8}
+        {0.8,0,0.8},
+        {0.8,0.8,0.8}
     }
 
     for y=1, #tablespr do
@@ -68,7 +69,8 @@ function rendercore.windowColor(colorid)
         {0,0,0.8},
         {0.8,0.8,0},
         {0,0.8,0.8},
-        {0.8,0,0.8}
+        {0.8,0,0.8},
+        {0.8,0.8,0.8}
     }
 
     setBackgroundcolor(WindowColors[colorid])
@@ -97,7 +99,8 @@ function rendercore.rect(x, y, w, h, colorid, fillType)
         {0,0,0.8},
         {0.8,0.8,0},
         {0,0.8,0.8},
-        {0.8,0,0.8}
+        {0.8,0,0.8},
+        {0.8,0.8,0.8}
     }
 
     setColor(RectColor[colorid])
