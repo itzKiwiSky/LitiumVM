@@ -7,7 +7,7 @@ end
 
 function start()
 
-    settings = require 'src.native.engine.core.settingsreader'
+    settings = require 'src/native/engine/core/settingsreader'
     litsystem.setName("Litium Engine v0.1 - Titanium")
 
     Timer = 0
