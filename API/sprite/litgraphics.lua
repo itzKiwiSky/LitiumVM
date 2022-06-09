@@ -9,8 +9,9 @@ textureFile = require 'src/native/engine/rendercore/texture'
 --- @param spriteSize | Change the sprite size
 --- @param xpos | X position to create sprite
 --- @param ypos | Y Position to create sprite
-function litgraphics.newSprite(table, spriteSize, xpos, ypos)
-    rendercore.drawCall(table, spriteSize, xpos, ypos)
+--- @param tablePallete | Import pallete for specific sprite (if nil got the default pallete)
+function litgraphics.newSprite(table, spriteSize, xpos, ypos, tablePallete)
+    rendercore.drawCall(table, spriteSize, xpos, ypos, tablePallete)
 end
 
 
@@ -43,12 +44,27 @@ function litgraphics.rect(xp, yp, wt, ht, color, fill)
 end
 
 --- Clear screen content
+--- return nothing
 function litgraphics.clearScreen()
     love.graphics.clear()
 end
 
+--- Import json files with sprite codes
+--- @param path | file path
 function litgraphics.loadSpriteFile(path)
     return textureFile.loadfile(path)
+end
+
+--- load a table pallete for sprites
+--- @param tablePallete | Pallete table
+function litgraphics.loadPallete(tablePallete)
+    rendercore.loadPallete(tablePallete)
+end
+
+--- Import a json file with pallete code
+--- @param path | file path
+function litgraphics.importPallete(path)
+    texture.loadfile(path)
 end
 
 return litgraphics

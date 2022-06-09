@@ -1,14 +1,7 @@
 rendercore = {}
 
-rect                    =               love.graphics.rectangle
-setColor                =               love.graphics.setColor
-setBackgroundcolor      =               love.graphics.setBackgroundColor
-
-fonts = require 'src/native/engine/resources/font'
-
-
-function rendercore.drawCall(tablespr, pixelSize, Xpos, Ypos)
-    colors = {
+--[[
+        colors = {
         {0,0,0,0},
         {0,0,0},
         {0.5,0.5,0.5},
@@ -33,12 +26,34 @@ function rendercore.drawCall(tablespr, pixelSize, Xpos, Ypos)
         {0.8,0,0.8},
         {0.8,0.8,0.8}
     }
+]]--
+
+rect                    =               love.graphics.rectangle
+setColor                =               love.graphics.setColor
+setBackgroundcolor      =               love.graphics.setBackgroundColor
+
+fonts = require 'src/native/engine/resources/font'
+
+pallete = {}
+
+function rendercore.loadPallete(palleteTable)
+    pallete = palleteTable
+end
+
+
+function rendercore.drawCall(tablespr, pixelSize, Xpos, Ypos, tblPallete)
+    if tblPallete == nil then
+        colors = pallete
+    else
+        colors = tblPallete
+
+    end
 
     for y=1, #tablespr do
 		for x=1, #tablespr[1] do
             color = colors[tablespr[y][x]]
-            if y > 50 or x > 50 then
-                error("Sprite size, higher than 50 pixels")
+            if y > 24 or x > 24 then
+                error("Sprite size, higher than 24 pixels")
             else
                 setColor(color[1], color[2], color[3], color[4])
                 rect("fill", Xpos + (x * pixelSize), Ypos + (y * pixelSize), pixelSize, pixelSize)

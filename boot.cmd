@@ -2,4 +2,4 @@
 cls
 color 05
 echo building...
-love  %cd%
+love %cd%

@@ -6,12 +6,12 @@
     litgraphics         =       require 'API/sprite/litgraphics'
     litsound            =       require 'API/sound/litsound'
     litgame             =       require 'API/game/litgame'
+    litsystem           =       require 'API/system/litsystem'
+    litfilesystem       =       require 'API/filesystem/litfilesystem'
     switch              =       require 'src/native/sources/switch'
 
     initLogoTimer = 0
 
-
-    --diskcheck.init()
     imageloader.init()
     imagedata = imageloader.getImage()
     pcall(imagedata(), start())

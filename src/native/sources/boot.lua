@@ -2,49 +2,108 @@ function start()
 
     settings = require 'src.native.engine.core.settingsreader'
 
+    litsystem.setName("Litium Engine v0.1 - Titanium [NO GAME LOADED]")
+
+    sprPallete = {
+        {0,0,0,0},      -- transparent color
+        {0,0,0},
+        {0.1,0.1,0.1},
+        {0.2,0.2,0.2},
+        {0.3,0.3,0.3},
+        {0.4,0.4,0.4},
+        {0.5,0.5,0.5},
+        {0.6,0.6,0.6},
+        {0.7,0.7,0.7},
+        {0.8,0.8,0.8},
+        {0.9,0.9,0.9},
+        {1,1,1}
+    }
+
+    heartPallete = {
+        {0,0,0,0},
+        {1,0,0},
+        {1,1,1}
+    }
+
     logo = {
-        {1,1,4,4,4,4,1,1},
-        {1,4,4,4,4,3,4,1},
-        {4,4,3,4,4,4,4,4},
-        {4,3,3,3,4,4,4,4},
-        {4,4,3,3,4,4,4,4},
-        {4,4,4,4,4,3,4,4},
-        {1,4,4,4,3,3,4,1},
-        {1,1,4,4,4,4,1,1}
+        {2,2,2,2,2,2,2,2},
+        {2,7,7,7,7,7,7,2},
+        {2,6,6,12,6,6,6,2},
+        {2,6,6,12,6,6,6,2},
+        {2,6,6,12,6,6,6,2},
+        {2,6,6,12,12,12,6,2},
+        {2,5,5,5,5,5,5,2},
+        {2,2,2,2,2,2,2,2},
     }
 
     Heart = {
         {1,1,1,1,1,1,1,1,1},
-        {1,5,5,1,1,1,5,5,1},
-        {5,5,5,5,1,5,4,5,5},
-        {5,5,5,5,5,4,5,5,5},
-        {5,5,5,5,5,5,5,5,5},
-        {1,5,5,5,5,5,5,5,1},
-        {1,1,5,5,5,5,5,1,1},
-        {1,1,1,5,5,5,1,1,1},
-        {1,1,1,1,5,1,1,1,1},
+        {1,2,2,1,1,1,2,2,1},
+        {2,2,2,2,1,2,3,2,2},
+        {2,2,2,2,2,3,2,2,2},
+        {2,2,2,2,2,2,2,2,2},
+        {1,2,2,2,2,2,2,2,1},
+        {1,1,2,2,2,2,2,1,1},
+        {1,1,1,2,2,2,1,1,1},
+        {1,1,1,1,2,1,1,1,1},
     }
+
+    shine = {
+        {
+            {1,1,1},
+            {1,12,1},
+            {1,1,1}
+        },
+        {
+            {1,12,1},
+            {12,12,12},
+            {1,12,1}
+        },
+        {
+            {12,1,12},
+            {1,12,1},
+            {12,1,12}
+        },
+    }
+
+    frame = 1
+    Timer = 0
     
+    litgraphics.loadPallete(sprPallete)
     heart = settingsreader.getvalue("bios_heart")
 end
 
 function render()
+
+    litgraphics.rect(0, 0, 1280, 768, 3, "fill")
+    litgraphics.rect(0, 0, 1280, 18, 23, "fill")
+        
     if not heart or heart == nil then
-        litgraphics.rect(0, 0, 1280, 768, 3, "fill")
-        litgraphics.rect(0, 0, 1280, 18, 23, "fill")
         litgraphics.newSprite(logo, 16, 60, 60)
-        litgraphics.newText("no game has been loaded", 300, 300, 6, 3, 1)
     else
-        litgraphics.rect(0, 0, 1280, 768, 3, "fill")
-        litgraphics.rect(0, 0, 1280, 18, 23, "fill")
-        litgraphics.newSprite(Heart, 16, 60, 60)
-        litgraphics.newText("no game has been loaded", 300, 300, 6, 3, 1)
-        litgraphics.newText("i love you", 0, 0, 2, 2, 1)
+        litgraphics.newSprite(Heart, 16, 60, 60, heartPallete)
     end
+
+    litgraphics.newText("no game has been loaded", 230, 306, 6, 1, 1)
+    litgraphics.newText("no game has been loaded", 230, 300, 6, 3, 1)
+    litgraphics.newText("Please insert a valid disk game", 230, 394, 4, 1, 1)
+    litgraphics.newText("Please insert a valid disk game", 230, 390, 4, 3, 1)
+    litgraphics.newSprite(shine[frame], 8, 290, 190)
+    litgraphics.newSprite(shine[frame], 8, 340, 70)
+    litgraphics.newSprite(shine[frame], 8, 20, 50)
+    litgraphics.newSprite(shine[frame], 8, 190, 40)
+    litgraphics.newSprite(shine[frame], 8, 180, 290)
 end
 
 function update(dt)
-
+    Timer = Timer + 1
+    if Timer > 10 then
+        Timer = 0
+        frame = frame + 1
+        if frame > #shine then
+            frame = 1
+        end
+    end
 end
 
 function keydown(k)end

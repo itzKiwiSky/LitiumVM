@@ -27,4 +27,8 @@ function litgame.collision(collisionType, sprite1, sprite2)
     end
 end
 
+function litgame.quit()
+    love.event.quit()
+end
+
 return litgame

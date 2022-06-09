@@ -60,11 +60,20 @@ function imageloader.getImage()     --get operating system name image (folder)
 
     -- old
     if data["bios_currentImage"] == "nil" or data["bios_currentImage"] == nil or data["bios_currentImage"] == "native" then
-        imagedata, err = load("src/native/sources/boot.lua")
+        if exist("file", "firstboot.txt") then
+            imagedata, err = load("src/native/sources/boot.lua")
 
-        if imagedata == nil then
-            
-            error(err, 2)
+            if imagedata == nil then
+                
+                error(err, 2)
+            end
+        else
+            imagedata, err = load("src/native/sources/firstboot.lua")
+
+            if imagedata == nil then
+                
+                error(err, 2)
+            end
         end
     else
         imagedata, err = load("disk/" .. data["bios_currentImage"] .. "/main.lua")
