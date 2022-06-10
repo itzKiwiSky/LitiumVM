@@ -8,4 +8,8 @@ function litfilesystem.newDir(dirname)
     return love.filesystem.createDirectory(dirname)
 end
 
+function litfilesystem.readFile(file)
+    return love.filesystem.read(file)
+end
+
 return litfilesystem

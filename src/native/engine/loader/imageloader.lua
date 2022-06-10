@@ -9,7 +9,8 @@ defaultSettings = [[
 return {
     bios_version = "0.0.1",
     bios_currentImage = "native",
-    bios_language = "en"
+    bios_language = "en",
+    bios_pluginsActive = {}
 }
 ]]
 
@@ -21,7 +22,8 @@ function createSettingsFile()
 end
 
 function createEngineFolders()
-    sucess = createDirectory("disk")
+    diskSucess = createDirectory("disk")
+    pluginsSucess = createDirectory("plugins")
 end
 
 function exist(type, filename)
@@ -45,6 +47,7 @@ end
 function imageloader.init()
     fileExist = exist("file", "engine.lua")
     dirExist = exist("folder", "disk")
+    pluginExist = exist("folder", "plugins")
     if not fileExist or not dirExist then
         createSettingsFile()
         createEngineFolders()

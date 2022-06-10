@@ -1,6 +1,7 @@
 function start()
 
-    settings = require 'src.native.engine.core.settingsreader'
+    settings = require 'src/native/engine/core/settingsreader'
+    lang = settings.getvalue("bios_language")
 
     litsystem.setName("Litium Engine v0.1 - Titanium [NO GAME LOADED]")
 
@@ -84,10 +85,10 @@ function render()
         litgraphics.newSprite(Heart, 16, 60, 60, heartPallete)
     end
 
-    litgraphics.newText("no game has been loaded", 230, 306, 6, 1, 1)
-    litgraphics.newText("no game has been loaded", 230, 300, 6, 3, 1)
-    litgraphics.newText("Please insert a valid disk game", 230, 394, 4, 1, 1)
-    litgraphics.newText("Please insert a valid disk game", 230, 390, 4, 3, 1)
+    litgraphics.newText(language[lang].noDisk.line1, 230, 306, 6, 1, 1)
+    litgraphics.newText(language[lang].noDisk.line1, 230, 300, 6, 3, 1)
+    litgraphics.newText(language[lang].noDisk.line2, 230, 394, 4, 1, 1)
+    litgraphics.newText(language[lang].noDisk.line2, 230, 390, 4, 3, 1)
     litgraphics.newSprite(shine[frame], 8, 290, 190)
     litgraphics.newSprite(shine[frame], 8, 340, 70)
     litgraphics.newSprite(shine[frame], 8, 20, 50)

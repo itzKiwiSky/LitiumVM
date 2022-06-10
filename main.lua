@@ -1,5 +1,8 @@
- function love.load()
+os = nil
+function love.load()
     imageloader = require 'src/native/engine/loader/imageloader'
+    pluginmanager = require 'src/native/engine/plugin/pluginmngr'
+    language = require 'src/native/engine/resources/language'
 
     
     --=[: API Stuff :]=--
@@ -14,6 +17,9 @@
 
     imageloader.init()
     imagedata = imageloader.getImage()
+
+    pluginmanager.loadPlugins()
+
     pcall(imagedata(), start())
 end
 
@@ -23,7 +29,7 @@ function love.draw()
 end
 
 function love.update(dt)
-    pcall(imagedata(), update())
+    pcall(imagedata(), update(dt))
 end
 
 function love.keypressed(k)
