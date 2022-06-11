@@ -1,8 +1,8 @@
 litgraphics = {}
 
-rendercore = require 'src/native/engine/rendercore/graph'
-textrender = require 'src/native/engine/rendercore/textrender'
-textureFile = require 'src/native/engine/rendercore/texture'
+rendercore = require 'src/native/engine/render/graph'
+textrender = require 'src/native/engine/render/textrender'
+textureFile = require 'src/native/engine/render/texture'
 
 --- Create a new Sprite.
 --- @param table | Parse the sprite table

@@ -1,6 +1,6 @@
 versionchecker = {}
 
-chan = require 'src/native/engine/chan/decode'
+chan = require 'src/native/engine/core/settings'
 stringx = require 'pl/stringx'
 
 function versionchecker.checkFileVersion()
