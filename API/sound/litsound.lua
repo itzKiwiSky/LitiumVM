@@ -23,7 +23,7 @@ end
 --- @param trackTable | load your table and play song
 function litsound.playTrack(trackTable)
     WaveLength      =       trackTable[arraySection][1]
-    NoteID          =       trackTable[arraySection][2]
+    freque          =       trackTable[arraySection][2]
     noteType        =       trackTable[arraySection][3]
     waitMS          =       trackTable[arraySection][4]
 
@@ -34,8 +34,8 @@ function litsound.playTrack(trackTable)
             timer = timer + 1
             if timer > waitMS then
                 arraySection = arraySection + 1
-                print(WaveLength, NoteID, noteType, waitMS)
-                sounddriver.newWave(WaveLength, NoteID, noteType)
+                print(WaveLength, freque, noteType, waitMS)
+                sounddriver.newWaveFrequency(WaveLength, freque, noteType)
                 timer = 0
             end
         end
