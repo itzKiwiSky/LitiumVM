@@ -14,6 +14,7 @@ function love.load()
     litgame             =       require 'API/game/litgame'
     litsystem           =       require 'API/system/litsystem'
     litfilesystem       =       require 'API/filesystem/litfilesystem'
+    litwindow           =       require 'API/window/litwindow'
     switch              =       require 'src/native/sources/switch'
 
     initLogoTimer = 0
