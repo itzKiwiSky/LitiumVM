@@ -50,8 +50,8 @@ function render()
     litgraphics.newText(language[lang].firstBoot.line1, 464, 305, 8, 2, 1)
     litgraphics.newText(language[lang].firstBoot.line1, 464, 300, 8, 3, 1)
     if state > 200 then
-        litgraphics.newText(language[lang].firstBoot.line2, 460, 362, 4, 2, 1)
-        litgraphics.newText(language[lang].firstBoot.line1, 460, 360, 4, 3, 1)
+        litgraphics.newText(language[lang].firstBoot.line2, 460, 364, 4, 2, 1)
+        litgraphics.newText(language[lang].firstBoot.line2, 460, 360, 4, 3, 1)
     end
     if state > 400 then
         litgraphics.newText("shutting down sequence", 0, 0, 2, 2, 1)
@@ -61,7 +61,6 @@ end
 function update(dt)
     Timer = Timer + 1
     state = state + 1
-    print(state)
     if Timer > 10 then
         Timer = 0
         frame = frame + 1
