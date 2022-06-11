@@ -1,8 +1,11 @@
-os = nil
+
 function love.load()
+    nativelocks = require 'src/native/engine/plugin/nativelocks'
     imageloader = require 'src/native/engine/loader/imageloader'
     pluginmanager = require 'src/native/engine/plugin/pluginmngr'
     language = require 'src/native/engine/resources/language'
+
+    nativelocks.lock()
 
     
     --=[: API Stuff :]=--
