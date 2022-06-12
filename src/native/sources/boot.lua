@@ -1,5 +1,27 @@
 function start()
 
+    scriptContent = [[
+function start()
+        
+end
+
+function render()
+        
+end
+
+function update(dt)
+        
+end
+
+function keydown(k)
+        
+end
+
+function keyup(k)
+        
+end
+    ]]
+
     settings = require 'src/native/engine/core/settingsreader'
     lang = settings.getvalue("bios_language")
 
@@ -107,6 +129,14 @@ function update(dt)
     end
 end
 
-function keydown(k)end
+function keydown(k)
+    if k == "1" then
+        litfilesystem.newDir("projects/newGame")
+        file = litfilesystem.createFile("projects/newGame/main.lua")
+        file:open("w")
+        file:write(scriptContent)
+        file:close()
+    end
+end
 
 function keyup(k)end

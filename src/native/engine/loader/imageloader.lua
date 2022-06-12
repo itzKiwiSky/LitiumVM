@@ -7,6 +7,9 @@ createDirectory     = love.filesystem.createDirectory
 
 defaultSettings = [[
 return {
+    -- Litium Engine configuration script --
+    -- Version 0.1 --
+    
     bios_version = "0.0.1",
     bios_currentImage = "native",
     bios_language = "en",
@@ -24,6 +27,7 @@ end
 function createEngineFolders()
     diskSucess = createDirectory("disk")
     pluginsSucess = createDirectory("plugins")
+    projectSucess = createDirectory("projects")
 end
 
 function exist(type, filename)
@@ -48,7 +52,8 @@ function imageloader.init()
     fileExist = exist("file", "engine.lua")
     dirExist = exist("folder", "disk")
     pluginExist = exist("folder", "plugins")
-    if not fileExist or not dirExist then
+    projects = exist("folder", "projects")
+    if not fileExist or not dirExist or not pluginExist or not projects then
         createSettingsFile()
         createEngineFolders()
     end
