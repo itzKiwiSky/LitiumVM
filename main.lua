@@ -1,18 +1,19 @@
 
 function love.load()
-    nativelocks = require 'src/native/engine/plugin/nativelocks'
+    nativelocks = require 'src/native/engine/core/nativelocks'
     imageloader = require 'src/native/engine/loader/imageloader'
     pluginmanager = require 'src/native/engine/plugin/pluginmngr'
     language = require 'src/native/engine/resources/language'
 
     nativelocks.lock()
 
-    
+
     --=[: API Stuff :]=--
     litgraphics         =       require 'API/sprite/litgraphics'
     litsound            =       require 'API/sound/litsound'
     litgame             =       require 'API/game/litgame'
     litsystem           =       require 'API/system/litsystem'
+	litinput			=		require 'API/input/litinput'
     litfilesystem       =       require 'API/filesystem/litfilesystem'
     litwindow           =       require 'API/window/litwindow'
     switch              =       require 'src/native/sources/switch'

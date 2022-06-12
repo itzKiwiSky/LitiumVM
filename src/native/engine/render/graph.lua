@@ -46,16 +46,15 @@ function rendercore.drawCall(tablespr, pixelSize, Xpos, Ypos, tblPallete)
         colors = pallete
     else
         colors = tblPallete
-
     end
-
     for y=1, #tablespr do
 		for x=1, #tablespr[1] do
             color = colors[tablespr[y][x]]
+            r, g, b, a = love.math.colorFromBytes(color[1], color[2], color[3], color[4])
             if y > 24 or x > 24 then
                 error("Sprite size, higher than 24 pixels")
             else
-                setColor(color[1], color[2], color[3], color[4])
+                setColor(r, g, b, a)
                 rect("fill", Xpos + (x * pixelSize), Ypos + (y * pixelSize), pixelSize, pixelSize)
             end
 		end

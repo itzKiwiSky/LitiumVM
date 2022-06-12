@@ -30,22 +30,22 @@ end
     sprPallete = {
         {0,0,0,0},      -- transparent color
         {0,0,0},
-        {0.1,0.1,0.1},
-        {0.2,0.2,0.2},
-        {0.3,0.3,0.3},
-        {0.4,0.4,0.4},
-        {0.5,0.5,0.5},
-        {0.6,0.6,0.6},
-        {0.7,0.7,0.7},
-        {0.8,0.8,0.8},
-        {0.9,0.9,0.9},
-        {1,1,1}
+        {10,10,10},
+        {20,20,20},
+        {30,30,30},
+        {40,40,40},
+        {50,50,50},
+        {60,60,60},
+        {70,70,70},
+        {80,80,80},
+        {90,90,90},
+        {255,255,255}
     }
 
     heartPallete = {
         {0,0,0,0},
-        {1,0,0},
-        {1,1,1}
+        {255,0,0},
+        {255,255,255}
     }
 
     logo = {
@@ -74,18 +74,18 @@ end
     shine = {
         {
             {1,1,1},
-            {1,12,1},
+            {1,3,1},
             {1,1,1}
         },
         {
-            {1,12,1},
-            {12,12,12},
-            {1,12,1}
+            {1,3,1},
+            {3,3,3},
+            {1,3,1}
         },
         {
-            {12,1,12},
-            {1,12,1},
-            {12,1,12}
+            {3,1,3},
+            {1,3,1},
+            {3,1,3}
         },
     }
 
@@ -111,11 +111,11 @@ function render()
     litgraphics.newText(language[lang].noDisk.line1, 230, 300, 6, 3, 1)
     litgraphics.newText(language[lang].noDisk.line2, 230, 394, 4, 1, 1)
     litgraphics.newText(language[lang].noDisk.line2, 230, 390, 4, 3, 1)
-    litgraphics.newSprite(shine[frame], 8, 290, 190)
-    litgraphics.newSprite(shine[frame], 8, 340, 70)
-    litgraphics.newSprite(shine[frame], 8, 20, 50)
-    litgraphics.newSprite(shine[frame], 8, 190, 40)
-    litgraphics.newSprite(shine[frame], 8, 180, 290)
+    litgraphics.newSprite(shine[frame], 8, 290, 190, heartPallete)
+    litgraphics.newSprite(shine[frame], 8, 340, 70, heartPallete)
+    litgraphics.newSprite(shine[frame], 8, 20, 50, heartPallete)
+    litgraphics.newSprite(shine[frame], 8, 190, 40, heartPallete)
+    litgraphics.newSprite(shine[frame], 8, 180, 290, heartPallete)
 end
 
 function update(dt)
