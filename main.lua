@@ -23,14 +23,13 @@ function love.load()
     imageloader.init()
     imagedata = imageloader.getImage()
 
-    pluginmanager.loadPlugins()
-
     pcall(imagedata(), start())
 end
 
 function love.draw()
     litgraphics.clearScreen()
     pcall(imagedata(), render())
+    pluginmanager.loadPlugins()
 end
 
 function love.update(dt)

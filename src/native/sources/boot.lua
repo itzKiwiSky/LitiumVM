@@ -22,8 +22,8 @@ function keyup(k)
 end
     ]]
 
-    settings = require 'src/native/engine/core/settingsreader'
-    lang = settings.getvalue("bios_language")
+    settings = require 'src/native/engine/core/file_reader'
+    lang = settings.getvalue("engine.lua", "bios_language")
 
     litsystem.setName("Litium Engine v0.1 - Titanium [NO GAME LOADED]")
 
@@ -93,7 +93,7 @@ end
     Timer = 0
     
     litgraphics.loadPallete(sprPallete)
-    heart = settingsreader.getvalue("bios_heart")
+    heart = settingsreader.getvalue("engine.lua", "bios_heart")
 end
 
 function render()

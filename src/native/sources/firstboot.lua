@@ -1,6 +1,6 @@
-settings = require 'src/native/engine/core/settingsreader'
+settings = require 'src/native/engine/core/file_reader'
 
-lang = settings.getvalue("bios_language")
+lang = settings.getvalue("engine.lua", "bios_language")
 
 function firstFile()
     first = litfilesystem.createFile("firstboot.txt")
