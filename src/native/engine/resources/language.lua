@@ -7,6 +7,11 @@ language = {
         firstBoot = {
             line1 = "welcome",
             line2 = "to litium"
+        },
+        bootSelection = {
+            title = "boot selection",
+            description = "select a disk to boot",
+            back = "esc to exit"
         }
     },
     br = {
@@ -17,6 +22,11 @@ language = {
         firstBoot = {
             line1 = "bem vindo",
             line2 = "ao litium"
+        },
+        bootSelection = {
+            title = "selecao de discos",
+            description = "selecione um disco para iniciar",
+            back = "esc para sair"
         }
     },
     es = {
@@ -27,6 +37,11 @@ language = {
         firstBoot = {
             line1 = "Bienvenido",
             line2 = "al litium"
+        },
+        bootSelection = {
+            title = "seleccion de disco",
+            description = "seleccione un disco para comenzar",
+            back = "esc para salir"
         }
     },
     it = {
@@ -37,7 +52,13 @@ language = {
         firstBoot = {
             line1 = "Benvenuto",
             line2 = "al litium"
+        },
+        bootSelection = {
+            title = "boot selection",
+            description = "select a disk to boot",
+            back = "esc to return"
         }
+        
     },
     --[[
     fr = {

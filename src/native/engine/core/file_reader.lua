@@ -1,6 +1,6 @@
 fileReader = {}
 
-function settingsreader.getvalue(filename, valuename)
+function fileReader.getvalue(filename, valuename)
 	engineConfigFile = load(filename)
     data = engineConfigFile()
 	return data[valuename]
