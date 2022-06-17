@@ -12,6 +12,12 @@ language = {
             title = "boot selection",
             description = "select a disk to boot",
             back = "esc to exit"
+        },
+        bootError = {
+            title = "Litium Boot system",
+            description = "An error has found during initialization process",
+            info = "not found a valid bootable image",
+            backStr = "press enter to restart"
         }
     },
     br = {
@@ -27,6 +33,12 @@ language = {
             title = "selecao de discos",
             description = "selecione um disco para iniciar",
             back = "esc para sair"
+        },
+        bootError = {
+            title = "Litium Boot system",
+            description = "um erro foi encontrado durante a inicializacao",
+            info = "nao foi encontrado um arquivo valido para inciar",
+            backStr = "pressione enter para reiniciar"
         }
     },
     es = {
@@ -42,6 +54,12 @@ language = {
             title = "seleccion de disco",
             description = "seleccione un disco para comenzar",
             back = "esc para salir"
+        },
+        bootError = {
+            title = "Litium Boot system",
+            description = "se encontro un error durante el inicio",
+            info = "no se encontro una imagen de arranque válida",
+            backStr = "presiona enter para reiniciar"
         }
     },
     it = {
@@ -57,6 +75,12 @@ language = {
             title = "boot selection",
             description = "select a disk to boot",
             back = "esc to return"
+        },
+        bootError = {
+            title = "Litium Boot system",
+            description = "e stato rilevato un errore durante il processo di inizializzazione",
+            info = "non e stata trovata un immagine di avvio valida",
+            backStr = "premere enter per riavviare"
         }
         
     },

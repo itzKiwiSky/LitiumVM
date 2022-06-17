@@ -4,6 +4,7 @@ function love.load()
     imageloader = require 'src/native/engine/loader/imageloader'
     pluginmanager = require 'src/native/engine/plugin/pluginmngr'
     language = require 'src/native/engine/resources/language'
+    utils = require 'src/native/engine/resources/utils'
 
     nativelocks.lock()
 
@@ -42,4 +43,8 @@ end
 
 function love.keyrelease(k)
     pcall(imagedata(), keyup(k))
+end
+
+function love.quit()
+    imageloader.changeImageName("native")
 end
