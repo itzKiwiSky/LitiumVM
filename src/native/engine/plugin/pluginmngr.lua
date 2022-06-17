@@ -9,8 +9,6 @@ function pluginmnger.loadPlugins()
             if value == true then
                 plugincode, err = love.filesystem.load("plugins/" .. pluginName .. "/plugin.lua")
                 pcall(plugincode(), plugin())
-            else
-                print("plugin disabled")
             end
         end
     else
