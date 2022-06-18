@@ -2,7 +2,8 @@ language = {
     en = {
         noDisk = {
             line1 = "no game has been loaded",
-            line2 = "Please insert a valid disk game"
+            line2 = "Please insert a valid disk game",
+            bootSelect = "press delete to select a game",
         },
         firstBoot = {
             line1 = "welcome",
@@ -24,7 +25,8 @@ language = {
     br = {
         noDisk = {
             line1 = "nenhum jogo foi carregado",
-            line2 = "por favor insira um jogo valido"
+            line2 = "por favor insira um jogo valido",
+            bootSelect = "pressione delete para selecionar um jogo",
         },
         firstBoot = {
             line1 = "bem vindo",
@@ -46,7 +48,8 @@ language = {
     es = {
         noDisk = {
             line1 = "no se cargaron juegos",
-            line2 = "por favor ingrese un juego valido"
+            line2 = "por favor ingrese un juego valido",
+            bootSelect = "presione delete para seleccionar un juego"
         },
         firstBoot = {
             line1 = "Bienvenido",
@@ -68,7 +71,8 @@ language = {
     it = {
         noDisk = {
             line1 = "nessun gioco e stato caricato",
-            line2 = "per favore inserisci un gioco valido"
+            line2 = "per favore inserisci un gioco valido",
+            bootSelect = "premere delete per selezionare un gioco"
         },
         firstBoot = {
             line1 = "Benvenuto",
