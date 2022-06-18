@@ -6,6 +6,10 @@ function love.load()
     language = require 'src/native/engine/resources/language'
     utils = require 'src/native/engine/resources/utils'
 
+
+    btnPressedCount = 0
+    love.keyboard.setKeyRepeat(true)
+
     nativelocks.lock()
 
 
@@ -37,8 +41,20 @@ function love.update(dt)
     pcall(imagedata(), update(dt))
 end
 
-function love.keypressed(k)
+function love.keypressed(k, scancode, isRepeat)
     pcall(imagedata(), keydown(k))
+
+    -- callback if specific keys pressed
+    if k == "home" then
+        if isRepeat then
+            print(btnPressedCount)
+            btnPressedCount = btnPressedCount + 1
+            if btnPressedCount > 20 then
+                imageloader.changeImageName("native")
+                love.event.quit("restart")
+            end
+        end
+    end
 end
 
 function love.keyrelease(k)

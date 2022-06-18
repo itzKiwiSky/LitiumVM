@@ -98,7 +98,7 @@ function imageloader.getImage()     --get operating system name image (folder)
     else
         imagedata, err = load("disk/" .. gameName .. "/main.lua")
 
-        if imagedata == nil then
+        if imagedata == nil or err ~= nil then
             
             imagedata, err = load("src/native/sources/errstate.lua")
         end
