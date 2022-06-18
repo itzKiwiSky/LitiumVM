@@ -11,7 +11,8 @@ language = {
         bootSelection = {
             title = "boot selection",
             description = "select a disk to boot",
-            back = "esc to exit"
+            noDisksInstalled = "no bootable disks found",
+            back = "escape to exit"
         },
         bootError = {
             title = "Litium Boot system",
@@ -32,7 +33,8 @@ language = {
         bootSelection = {
             title = "selecao de discos",
             description = "selecione um disco para iniciar",
-            back = "esc para sair"
+            noDisksInstalled = "nenhum disco foi detectado",
+            back = "escape para sair"
         },
         bootError = {
             title = "Litium Boot system",
@@ -53,7 +55,8 @@ language = {
         bootSelection = {
             title = "seleccion de disco",
             description = "seleccione un disco para comenzar",
-            back = "esc para salir"
+            noDisksInstalled = "no se detecto ningun disco",
+            back = "escape para salir"
         },
         bootError = {
             title = "Litium Boot system",
@@ -72,9 +75,10 @@ language = {
             line2 = "al litium"
         },
         bootSelection = {
-            title = "boot selection",
-            description = "select a disk to boot",
-            back = "esc to return"
+            title = "selezione dello stivale",
+            description = "seleziona un disco da avviare",
+            noDisksInstalled = "nessun disco e stato rilevato",
+            back = "escape per tornare"
         },
         bootError = {
             title = "Litium Boot system",
@@ -83,19 +87,7 @@ language = {
             backStr = "premere enter per riavviare"
         }
         
-    },
-    --[[
-    fr = {
-        noDisk = {
-            line1 = "aucun jeu n'a été chargé",
-            line2 = "veuillez entrer un jeu valide"
-        },
-        firstBoot = {
-            line1 = "accueillir",
-            line2 = "au litium"
-        }
     }
-    ]]--
 }
 
 return language

@@ -44,7 +44,3 @@ end
 function love.keyrelease(k)
     pcall(imagedata(), keyup(k))
 end
-
-function love.quit()
-    imageloader.changeImageName("native")
-end

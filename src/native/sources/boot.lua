@@ -5,6 +5,8 @@ function start()
 
     selection = 1
 
+    noDisks = false
+
 scriptContent = [[
 function start()
     
@@ -30,6 +32,7 @@ end
     settings = require 'src/native/engine/core/file_reader'
     diskcheck = require 'src/native/engine/loader/diskcheck'
     lang = settings.getvalue("engine.lua", "bios_language")
+    diskList = diskcheck.init()
 
     litsystem.setName("Litium Engine v0.1 - Titanium [NO GAME LOADED]")
 
@@ -138,8 +141,17 @@ function render()
         litgraphics.newText(language[lang].bootSelection.title, 10, 10, 5, 3, 1)
         litgraphics.newText(language[lang].bootSelection.description, 10, 80, 3, 3, 1)
         litgraphics.newText(language[lang].bootSelection.back, 10, 730, 3, 3, 1)
-        litgraphics.newSprite(cursor, 4, 10, cursorY, heartPallete)
-        renderDiskList()
+        if not noDisks then
+            litgraphics.newSprite(cursor, 4, 10, cursorY, heartPallete)
+        else
+            litgraphics.newText(language[lang].bootSelection.noDisksInstalled, 10, 140, 4, 3, 1)
+        end
+        if #diskList ~= 0 then
+            noDisks = false
+            renderDiskList()
+        else
+            noDisks = true
+        end
     end
 end
 
@@ -155,7 +167,6 @@ function update(dt)
         end
     end
     if state == 2 then
-       print(selection) 
     end
 end
 
@@ -178,29 +189,31 @@ function keydown(k)
         end
 
         -- cursor control
-        if k == "up" then
-            cursorY = cursorY - 40
-            selection = selection - 1
-            if cursorY < 200 then
-                cursorY = 200
+        if not noDisks then
+            if k == "up" then
+                cursorY = cursorY - 40
+                selection = selection - 1
+                if cursorY < 200 then
+                    cursorY = 200
+                end
+                if selection < 1 then
+                    selection = 1
+                end
             end
-            if selection < 1 then
-                selection = 1
-            end
-        end
-        if k == "down" then
-            cursorY = cursorY + 40
-            selection = selection + 1
-            if cursorY > Ymax then
-                cursorY = Ymax
-            end
-            if selection > #diskList then
-                selection = #diskList
+            if k == "down" then
+                cursorY = cursorY + 40
+                selection = selection + 1
+                if cursorY > Ymax then
+                    cursorY = Ymax
+                end
+                if selection > #diskList then
+                    selection = #diskList
+                end
             end
         end
         if k == "return" then
             imageloader.changeImageName(diskList[selection])
-            love.event.quit("restart")
+            litgame.quit("restart")
         end
     end
 end
@@ -209,7 +222,6 @@ function keyup(k)end
 
 function renderDiskList()
     y = 200
-    diskList = diskcheck.init()
     for li = 1, #diskList do
         litgraphics.newText(diskList[li], 50, y, 3, 3, 1)
 
