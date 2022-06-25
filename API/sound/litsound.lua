@@ -11,16 +11,15 @@ arraySection = 1
 
 
 --- Generate simple tone
---- @param waveLength | wave holding
---- @param ToneID |ID of tone
---- @param waveType | define the wave type. Can be square or wave
----@
-function litsound.newWave(waveLength, ToneID, waveType)
-    sounddriver.newWave(waveLength, ToneID, waveType)
+--- @param waveLength number
+--- @param frequency number
+--- @param waveType string
+function litsound.newWave(waveLength, frequency, waveType)
+    sounddriver.newWave(waveLength, frequency, waveType)
 end
 
 --- Play your table song
---- @param trackTable | load your table and play song
+--- @param trackTable table
 function litsound.playTrack(trackTable)
     WaveLength      =       trackTable[arraySection][1]
     freque          =       trackTable[arraySection][2]
@@ -43,15 +42,6 @@ function litsound.playTrack(trackTable)
         isPlayingTrack = false
         return
     end
-end
-
---- Play your song  from file .json
---- @param path | load json file with song content and play it
-
-function litsound.loadFile(path)
-    file = io.open(path, "r")
-    --assert(file == nil, "[:ERROR:] | Can't load file with path " .. path)
-    return json.decode(file:read())
 end
 
 return litsound

@@ -5,7 +5,8 @@ getInfo             = love.filesystem.getInfo
 newFile             = love.filesystem.newFile
 createDirectory     = love.filesystem.createDirectory
 
-saveDir             = love.filesystem.getSaveDirectory()
+SaveDir             = love.filesystem.getSaveDirectory()
+print(SaveDir)
 
 defaultSettings = [[
 return {
@@ -36,6 +37,7 @@ function createEngineFolders()
     diskSucess = createDirectory("disk")
     pluginsSucess = createDirectory("plugins")
     projectSucess = createDirectory("projects")
+    saveSucess = createDirectory("save")
 end
 
 function exist(type, filename)
@@ -62,7 +64,8 @@ function imageloader.init()
     dirExist = exist("folder", "disk")
     pluginExist = exist("folder", "plugins")
     projects = exist("folder", "projects")
-    if not fileExist or not dirExist or not pluginExist or not projects or not imageExist then
+    saveExist = exist("folder", "save")
+    if not fileExist or not dirExist or not pluginExist or not projects or not imageExist or not saveExist then
         createSettingsFile()
         createImageFile()
         createEngineFolders()
@@ -74,7 +77,7 @@ function imageloader.getImage()     --get operating system name image (folder)
 
     -- get file datas
     engineConfigFile = load("engine.lua")
-    imageFileName = io.open(saveDir .. "/image.txt", "r")
+    imageFileName = io.open(SaveDir .. "/image.txt", "r")
     gameName = imageFileName:read()
     data = engineConfigFile()
 
@@ -107,7 +110,7 @@ function imageloader.getImage()     --get operating system name image (folder)
 end
  
 function imageloader.changeImageName(image)
-    gameTxTFile = io.open(saveDir .. "/image.txt", "w")
+    gameTxTFile = io.open(SaveDir .. "/image.txt", "w")
     gameTxTFile:write(image)
     gameTxTFile:close()
 end

@@ -8,8 +8,8 @@ font = require 'src/native/engine/resources/font'
 
 function text.drawStr(Textstr, x, y, FontSize, txtColor, bgColorId)
     --textStr = text.splitLetters(str)
-
-    textOutput = string.lower(tostring(Textstr))
+    strNum = tostring(Textstr)
+    textOutput = string.lower(strNum)
 
     letters = "abcdefghijklmnopqrstuvwxyz0123456789 "
 

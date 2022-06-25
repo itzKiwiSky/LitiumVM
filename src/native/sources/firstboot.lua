@@ -10,7 +10,7 @@ function firstFile()
 end
 
 function start()
-    litsystem.setName("Litium Engine v0.1 - Titanium")
+    litsystem.setName("Litium [BETA] v0.2 - Blue Garnet")
 
     Timer = 0
     frame = 1

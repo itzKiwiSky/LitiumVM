@@ -4,11 +4,12 @@ function litwindow.screenMode()
     return love.window.getMode()
 end
 
---- func desc
---- @param title | Popup title
---- @param message | Popup message content
---- @param type | Popup type String
---- @param attach | lock popup pos to window positions
+
+--- Display message box
+--- @param title string
+--- @param message string
+--- @param type string
+--- @param attach boolean
 function litwindow.popup(title, message, type, attach)
     return love.window.showMessageBox(title, message, type, attach)
 end

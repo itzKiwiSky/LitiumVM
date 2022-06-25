@@ -9,23 +9,23 @@ function start()
 
 scriptContent = [[
 function start()
-    
+    -- everything here will run only on startup --
 end
 
 function render()
-    
+    -- will render objects on screen every frame --
 end
 
 function update(dt)
-    
+    -- will update every frame --
 end
 
 function keydown(k)
-    
+    -- called when key is down --
 end
 
 function keyup(k)
-    
+    -- called when key is up --
 end
 ]]
 
@@ -34,7 +34,7 @@ end
     lang = settings.getvalue("engine.lua", "bios_language")
     diskList = diskcheck.init()
 
-    litsystem.setName("Litium Engine v0.1 - Titanium [NO GAME LOADED]")
+    litsystem.setName("Litium [BETA] v0.2 - Blue Garnet [NO GAME LOADED]")
 
     sprPallete = {
         {0,0,0,0},      -- transparent color

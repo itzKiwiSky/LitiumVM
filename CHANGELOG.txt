@@ -1,0 +1,13 @@
+Changelogs
+
+ - {0.0.2}  [Blue Garnet]
+
+- Render updates, sprites supports custom color palletes
+- Added default pallete for render sprites if no custom pallete was definied
+- Added save module for API
+- Added some annotations on script when new project is created
+
+-=[ Core Changes (for developers)]=-
+
+- Save handler
+- "WindowColor" function removed from render

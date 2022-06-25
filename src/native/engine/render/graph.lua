@@ -1,32 +1,21 @@
 rendercore = {}
 
---[[
-        colors = {
-        {0,0,0,0},
-        {0,0,0},
-        {0.5,0.5,0.5},
-        {1,1,1},
-        {1,0,0},
-        {0,1,0},
-        {0,0,1},
-        {1,1,0},
-        {0,1,1},
-        {1,0,1},
-        {0.5,0,0},
-        {0,0.5,0},
-        {0,0,0.5},
-        {0.5,0.5,0},
-        {0,0.5,0.5},
-        {0.5,0,0.5},
-        {0.8,0,0},
-        {0,0.8,0},
-        {0,0,0.8},
-        {0.8,0.8,0},
-        {0,0.8,0.8},
-        {0.8,0,0.8},
-        {0.8,0.8,0.8}
-    }
-]]--
+defaultColorPallete = {
+    {0,0,0,0},
+    {0,0,0},
+    {255,255,255},
+    {180,180,180},
+    {80,80,80},
+    {255,0,0},
+    {180,0,0},
+    {80,0,0},
+    {0,255,0},
+    {0,180,0},
+    {0,80,0},
+    {0,0,255},
+    {0,0,180},
+    {0,0,80},
+}
 
 rect                    =               love.graphics.rectangle
 setColor                =               love.graphics.setColor
@@ -34,7 +23,7 @@ setBackgroundcolor      =               love.graphics.setBackgroundColor
 
 fonts = require 'src/native/engine/resources/font'
 
-pallete = {}
+pallete = defaultColorPallete
 
 function rendercore.loadPallete(palleteTable)
     pallete = palleteTable
@@ -59,35 +48,6 @@ function rendercore.drawCall(tablespr, pixelSize, Xpos, Ypos, tblPallete)
             end
 		end
 	end
-end
-
-function rendercore.windowColor(colorid)
-    WindowColors = {
-        {0,0,0},
-        {0.5,0.5,0.5},
-        {1,1,1},
-        {1,0,0},
-        {0,1,0},
-        {0,0,1},
-        {1,1,0},
-        {0,1,1},
-        {1,0,1},
-        {0.5,0,0},
-        {0,0.5,0},
-        {0,0,0.5},
-        {0.5,0.5,0},
-        {0,0.5,0.5},
-        {0.5,0,0.5},
-        {0.8,0,0},
-        {0,0.8,0},
-        {0,0,0.8},
-        {0.8,0.8,0},
-        {0,0.8,0.8},
-        {0.8,0,0.8},
-        {0.8,0.8,0.8}
-    }
-
-    setBackgroundcolor(WindowColors[colorid])
 end
 
 function rendercore.rect(x, y, w, h, colorid, fillType)
@@ -118,7 +78,6 @@ function rendercore.rect(x, y, w, h, colorid, fillType)
     }
 
     setColor(RectColor[colorid])
-
     rect(fillType, x, y, w, h)
 end
 

@@ -2,6 +2,7 @@
 function love.load()
     nativelocks = require 'src/native/engine/core/nativelocks'
     imageloader = require 'src/native/engine/loader/imageloader'
+    save = require 'src/native/engine/core/save_handler'
     pluginmanager = require 'src/native/engine/plugin/pluginmngr'
     language = require 'src/native/engine/resources/language'
     utils = require 'src/native/engine/resources/utils'
@@ -21,6 +22,7 @@ function love.load()
 	litinput			=		require 'API/input/litinput'
     litfilesystem       =       require 'API/filesystem/litfilesystem'
     litwindow           =       require 'API/window/litwindow'
+    litsave             =       require 'API/savesystem/litsave'
     switch              =       require 'src/native/sources/switch'
 
     initLogoTimer = 0

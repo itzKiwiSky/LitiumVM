@@ -1,5 +1,9 @@
 litgame = {}
 
+--- Check for collision based on two sprite tables
+---@param collisionType string
+---@param sprite1 table
+---@param sprite2 table
 function litgame.collision(collisionType, sprite1, sprite2)
     if string.lower(collisionType) == "rect" then
         return sprite1.x < sprite2.x + sprite2.w and

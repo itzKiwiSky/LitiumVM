@@ -21,7 +21,7 @@ function start()
         {1,1,2,2,2,2,1,1},
     }
 
-    litsystem.setName("Litium Engine - [LITIUM BOOT SYSTEM ERROR] : 0x000001")
+    litsystem.setName("Litium [BETA] - [LITIUM BOOT SYSTEM ERROR] : 0x000001")
 end
 
 function render()
