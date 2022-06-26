@@ -6,6 +6,7 @@ Changelogs
 - Added default pallete for render sprites if no custom pallete was definied
 - Added save module for API
 - Added some annotations on script when new project is created
+- added Keybind for rebooting and exit from current game and return to main menu, do this by pressing [HOME] key for some seconds.
 
 -=[ Core Changes (for developers)]=-
 
