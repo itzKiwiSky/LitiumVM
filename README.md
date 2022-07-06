@@ -1,6 +1,9 @@
 # LitiumVM
 > Codename : lunaris, mini os and game engine made with love2D.
 
+# WARNING, THIS REPOSITORY IS NO LONGER MANTAINED
+> ## Check the official repository page by clicking [here](https://github.com/Litium-org/litium)
+
 [![Lua language](./images/lua-badge.png)](https://www.lua.org)
 
 # About Project
